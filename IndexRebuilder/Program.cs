@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Microsoft.Azure.WebJobs;
+﻿using Microsoft.Azure.WebJobs;
+using System.Diagnostics;
 
 namespace IndexRebuilder
 {
@@ -14,7 +10,11 @@ namespace IndexRebuilder
         // AzureWebJobsDashboard and AzureWebJobsStorage
         static void Main()
         {
-            var host = new JobHost();
+            JobHostConfiguration config = new JobHostConfiguration();
+            config.Tracing.ConsoleLevel = TraceLevel.Verbose;
+            config.UseTimers();
+
+            var host = new JobHost(config);
             // The following code ensures that the WebJob will be running continuously
             host.RunAndBlock();
         }

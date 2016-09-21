@@ -5,6 +5,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Azure.WebJobs;
+using System.Configuration;
+using System.Data.SqlClient;
 
 namespace IndexRebuilder
 {
@@ -14,7 +16,21 @@ namespace IndexRebuilder
         // on an Azure Queue called queue.
         public static void ProcessQueueMessage([QueueTrigger("queue")] string message, TextWriter log)
         {
-            log.WriteLine(message);
+            //log.WriteLine(message);
+        }
+
+        public static async Task RebuildIndexes([TimerTrigger("30 2 * * *", RunOnStartup =true)] TimerInfo timer, TextWriter log)
+        {
+            string connectionString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
+
+            List<Task> indexTasks = new List<Task>();
+
+            using(SqlConnection connection = new SqlConnection(connectionString))
+            {
+                await connection.OpenAsync();
+
+                string indexCommandText = "";
+            }
         }
     }
 }
