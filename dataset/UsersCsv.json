@@ -1,0 +1,27 @@
+{
+	"name": "UsersCsv",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "TestStorage",
+			"type": "LinkedServiceReference"
+		},
+		"folder": {
+			"name": "PreCanned"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": "Users.csv",
+				"container": "lunch"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": []
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

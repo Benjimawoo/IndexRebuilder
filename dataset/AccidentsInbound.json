@@ -1,0 +1,154 @@
+{
+	"name": "AccidentsInbound",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "TestStorage",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": "Accidents_2015.csv",
+				"folderPath": "RoadSafety/Accidents",
+				"container": "accidentfiles"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"name": "Accident_Index",
+				"type": "String"
+			},
+			{
+				"name": "Location_Easting_OSGR",
+				"type": "String"
+			},
+			{
+				"name": "Location_Northing_OSGR",
+				"type": "String"
+			},
+			{
+				"name": "Longitude",
+				"type": "String"
+			},
+			{
+				"name": "Latitude",
+				"type": "String"
+			},
+			{
+				"name": "Police_Force",
+				"type": "String"
+			},
+			{
+				"name": "Accident_Severity",
+				"type": "String"
+			},
+			{
+				"name": "Number_of_Vehicles",
+				"type": "String"
+			},
+			{
+				"name": "Number_of_Casualties",
+				"type": "String"
+			},
+			{
+				"name": "Date",
+				"type": "String"
+			},
+			{
+				"name": "Day_of_Week",
+				"type": "String"
+			},
+			{
+				"name": "Time",
+				"type": "String"
+			},
+			{
+				"name": "Local_Authority_(District)",
+				"type": "String"
+			},
+			{
+				"name": "Local_Authority_(Highway)",
+				"type": "String"
+			},
+			{
+				"name": "1st_Road_Class",
+				"type": "String"
+			},
+			{
+				"name": "1st_Road_Number",
+				"type": "String"
+			},
+			{
+				"name": "Road_Type",
+				"type": "String"
+			},
+			{
+				"name": "Speed_limit",
+				"type": "String"
+			},
+			{
+				"name": "Junction_Detail",
+				"type": "String"
+			},
+			{
+				"name": "Junction_Control",
+				"type": "String"
+			},
+			{
+				"name": "2nd_Road_Class",
+				"type": "String"
+			},
+			{
+				"name": "2nd_Road_Number",
+				"type": "String"
+			},
+			{
+				"name": "Pedestrian_Crossing-Human_Control",
+				"type": "String"
+			},
+			{
+				"name": "Pedestrian_Crossing-Physical_Facilities",
+				"type": "String"
+			},
+			{
+				"name": "Light_Conditions",
+				"type": "String"
+			},
+			{
+				"name": "Weather_Conditions",
+				"type": "String"
+			},
+			{
+				"name": "Road_Surface_Conditions",
+				"type": "String"
+			},
+			{
+				"name": "Special_Conditions_at_Site",
+				"type": "String"
+			},
+			{
+				"name": "Carriageway_Hazards",
+				"type": "String"
+			},
+			{
+				"name": "Urban_or_Rural_Area",
+				"type": "String"
+			},
+			{
+				"name": "Did_Police_Officer_Attend_Scene_of_Accident",
+				"type": "String"
+			},
+			{
+				"name": "LSOA_of_Accident_Location",
+				"type": "String"
+			}
+		]
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}
